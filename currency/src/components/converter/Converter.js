@@ -10,7 +10,7 @@ class Converter extends Component {
     errorMessageRef = React.createRef();
     
     exchange(){
-        if(this.selectRef.current.value == 'default' || this.outputSelectRef.current.value == 'default'){
+        if(this.selectRef.current.value === 'default' || this.outputSelectRef.current.value === 'default'){
             this.errorMessageRef.current.classList.remove('d-none');
         }else{
             const calculated = this.calculateCurrency(this.selectRef.current.value,this.outputSelectRef.current.value);
@@ -20,8 +20,8 @@ class Converter extends Component {
     }
 
     calculateCurrency(first,second){
-        const firstSelect = currency.find(x => x.code == first).value;
-        const secondSelect = currency.find(x => x.code == second).value;
+        const firstSelect = currency.find(x => x.code === first).value;
+        const secondSelect = currency.find(x => x.code === second).value;
         return (firstSelect/secondSelect) * this.inputRef.current.value;
     }
 
