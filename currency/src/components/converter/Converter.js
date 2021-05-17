@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import currency from '../../rates.json';
 
 class Converter extends Component {
     render() {
@@ -13,7 +14,9 @@ class Converter extends Component {
                             <p>From</p>
                             <input type='number' />
                             <select>
-                                <option>option</option>
+                                {currency.map((item, value) => (
+                                    <option key={value}>{item.code}</option>
+                                ))}
                             </select>
                         </div>
                         <div className='middle text-center'>
@@ -23,9 +26,12 @@ class Converter extends Component {
                             <p>To</p>
                             <span><b>1700</b></span>
                             <select>
-                                <option>option</option>
+                                {currency.map((item, value) => (
+                                    <option key={value}>{item.code}</option>
+                                ))}
                             </select>
                         </div>
+                    <button>Exchange</button>
                     </div>
                 </div>
             </div>
